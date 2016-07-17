@@ -2,20 +2,26 @@
 <html>
 <head>
     <title> {% block title %}{% endblock %} | twitterClone</title>
+    <link rel="stylesheet" type="text/css" href="/static/common.css">
 </head>
 <body>
+    <div id="container">
 
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul>
-        {% for message in messages %}
-          <li>{{ message }}</li>
-        {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div id="messages">
+            <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+      {% endwith %}
 
-    {% block body %}
-    {% endblock %}
+      {% block content %}
+      {% endblock %}
+
+    </div>
 </body>
 </html>

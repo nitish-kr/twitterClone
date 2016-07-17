@@ -1,0 +1,31 @@
+body {
+    font-family: Consolas;
+    max-width: 800px;
+    margin: auto;
+    /*background-color: cornsilk;*/
+}
+
+
+div#messages {
+    border: 1px solid lightblue;
+    background-color: aliceblue;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+div.loginRegistrationForm {
+    padding: 25px;
+    border: 1px solid lightblue;
+    margin-top: 50px;
+}
+
+input[type=submit].formButton {
+    border: 1px solid blue;
+    background: blue;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
