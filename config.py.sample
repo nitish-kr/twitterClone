@@ -1,0 +1,10 @@
+# Copy this to ./config.py
+
+DEBUG = True
+SECRET_KEY = "AVerySecretKey"
+
+DB_HOST = "localhost"
+DB_USER = "root"
+DB_PASS = "root"
+DB_NAME = "twitter_clone"
+DB_PORT = 3306

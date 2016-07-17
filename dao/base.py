@@ -1,4 +1,12 @@
 
 import MySQLdb
-conn = MySQLdb.connect("localhost", "root", "root", "twitter_clone", 3306)
+import config
+
+conn = MySQLdb.connect(
+    config.DB_HOST,
+    config.DB_USER,
+    config.DB_PASS,
+    config.DB_NAME,
+    config.DB_PORT
+    )
 cursor = conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)

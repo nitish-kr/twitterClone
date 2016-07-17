@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, session, redirect, url_for, flash
 
 app = Flask(__name__)
-app.secret_key = "SECRET"
+app.config.from_object("config")
 
 
 from controllers import user as userController
@@ -14,12 +14,10 @@ def login():
 @app.route("/loginSubmit", methods=["POST"])
 def loginSubmit():
     isLoginSuccessful, message = userController.login(request.form["username"], request.form["password"])
-    print isLoginSuccessful
-    print message
+    flash(message)
     if isLoginSuccessful:
         return redirect(url_for("home"))
     else:
-        flash(message)
         return redirect(url_for("login"))
 
 
@@ -46,4 +44,4 @@ def home():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
