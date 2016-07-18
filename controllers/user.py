@@ -3,6 +3,8 @@ from dao import user as userDao
 from flask import session, redirect, url_for
 
 def login(username, password):
+    if not (username and password):
+        return (False, "Please enter both username & password")
     user = userDao.find(username)
     if not user:
         return (False, "Username '{}' not found".format(username))
@@ -17,5 +19,8 @@ def logout():
 
 
 def register(username, password, fullName):
+    if not (username and password and fullName):
+        return (False, "Please enter all details")
     newUserId = userDao.create(username, password, fullName)
     session["loggedInUserId"] = newUserId
+    return (True, "Registration successful")

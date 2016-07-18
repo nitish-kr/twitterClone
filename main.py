@@ -28,8 +28,16 @@ def register():
 
 @app.route("/registrationSubmit", methods=["POST"])
 def registrationSubmit():
-    userController.register(request.form["username"], request.form["password"], request.form["fullName"])
-    return redirect(url_for("home"))
+    isRegistrationSuccesful, message = userController.register(
+        request.form["username"],
+        request.form["password"],
+        request.form["fullName"]
+    )
+    flash(message)
+    if isRegistrationSuccesful:
+        return redirect(url_for("home"))
+    else:
+        return redirect(url_for("register"))
 
 
 @app.route("/logout")
