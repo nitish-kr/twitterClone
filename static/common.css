@@ -30,3 +30,17 @@ input[type=submit].formButton {
     padding-bottom: 5px;
     cursor: pointer;
 }
+
+div.post {
+    border: 1px solid lightblue;
+    padding: 10px;
+    background-color: aliceblue;
+    margin-top: 50px;
+}
+
+div.userInfo {
+    border: 1px solid lightblue;
+    padding: 10px;
+    background-color: lightgreen;
+    margin-top: 50px;
+}

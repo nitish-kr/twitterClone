@@ -8,3 +8,9 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     full_name VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE posts (
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    content TEXT NOT NULL,
+    user_id INT NOT NULL
+);
