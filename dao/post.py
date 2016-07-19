@@ -9,6 +9,6 @@ def create(content, userId):
 
 
 def findAll():
-    sql = "SELECT p.content, u.full_name FROM posts AS p LEFT JOIN users AS u ON p.user_id = u.id"
+    sql = "SELECT p.id, p.content, u.full_name FROM posts AS p LEFT JOIN users AS u ON p.user_id = u.id"
     cursor.execute(sql)
     return cursor.fetchall()
