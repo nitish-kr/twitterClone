@@ -7,10 +7,10 @@ body {
 
 
 div#messages {
-    border: 1px solid lightblue;
-    background-color: aliceblue;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    border: 1px solid lightgrey;
+    /* margin-top: 10px; */
+    /* margin-bottom: 10px; */
+    background-color: lightgoldenrodyellow
 }
 
 div.loginRegistrationForm {
@@ -29,4 +29,18 @@ input[type=submit].formButton {
     padding-top: 5px;
     padding-bottom: 5px;
     cursor: pointer;
+}
+
+div.post {
+    border: 1px solid lightblue;
+    padding: 10px;
+    background-color: aliceblue;
+    margin-top: 10px;
+}
+
+div.userInfo {
+    border: 1px solid lightgrey;
+    padding: 10px;
+    background-color: floralwhite;
+    margin-top: 50px;
 }

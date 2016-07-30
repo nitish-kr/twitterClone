@@ -5,6 +5,7 @@ app.config.from_object("config")
 
 
 from controllers import user as userController
+from controllers import post as postController
 
 @app.route("/login")
 def login():
@@ -43,12 +44,22 @@ def registrationSubmit():
 @app.route("/logout")
 def logout():
     userController.logout()
+    flash("Succesfully logged out.. !")
     return redirect(url_for("login"))
 
 
 @app.route("/home")
 def home():
-    return "Logged in user id is: {}".format(session.get("loggedInUserId", "NA"))
+    allPosts = postController.findAll()
+    loggedInUserInfo = userController.getLoggedInUserInfo()
+
+    return render_template("home.html", posts=allPosts, loggedInUserInfo=loggedInUserInfo)
+
+@app.route("/newPostSubmit", methods=["POST"])
+def newPostSubmit():
+    isNewPostCreated, message = postController.add(request.form["content"])
+    flash(message)
+    return redirect(url_for("home"))
 
 
 if __name__ == "__main__":

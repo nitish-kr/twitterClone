@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %} Home {% endblock %}
+{% block content %}
+    <div class="userInfo">
+        Hello..  {{ loggedInUserInfo.full_name }}.. <a href='{{ url_for("logout") }}'>Logout</a>
+    </div>
+    <h3>Create new post</h3>
+    <div class="newPostForm">
+        <form method="POST" action="/newPostSubmit">
+            <textarea rows="5" cols="100" name="content" placeholder="Enter your post here.."></textarea>            
+            <br />
+            <input class="formButton" type="submit" name="submit" value="Create post" />
+        </form>
+    </div>
+    <br />
+    <h3>Listing of all posts</h3>
+    {% for post in posts %}
+        <div class="post">
+            <span> # {{ post.id }} </span>
+            <p> {{ post.content }}</p>
+            <br />
+            By - {{ post.full_name }}
+        </div>
+    {% endfor %}
+{% endblock %}
